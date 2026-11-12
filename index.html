@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JAFRA 10X Uzbekistan</title>
+<meta name="description" content="JAFRA 10X: رحلات خاصة وجماعية إلى أوزبكستان للمسافرين العرب. طشقند، سمرقند، بخارى، خيوة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: glazed-tile world of Samarkand. One lapis hero with a drawn tile lattice,
+     then quiet white/tile-white bands; the four-city route is the spine of the page. */
+  color-scheme: light;
+  --lapis:#12305E;
+  --lapis-deep:#0B2147;
+  --turq:#1B9AA0;
+  --gold:#C8962B;
+  --tile:#EDF2F1;
+  --paper:#FFFFFF;
+  --ink:#14233B;
+  --muted:#51607A;
+  --line:#CFD9DC;
+  --font-display:"Reem Kufi","IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --font-body:"IBM Plex Sans Arabic","IBM Plex Sans","Segoe UI",Tahoma,sans-serif;
+  --wrap:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85}
+html[lang="en"] body{font-family:"IBM Plex Sans","IBM Plex Sans Arabic","Segoe UI",sans-serif;line-height:1.65}
+h1,h2,h3{font-family:var(--font-display);line-height:1.3;margin:0;text-wrap:balance;font-weight:700}
+h2{font-size:clamp(1.6rem,3.6vw,2.35rem);color:var(--lapis)}
+h3{font-size:1.3rem;color:var(--lapis)}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
+.band{padding-block:72px}
+.band--tile{background:var(--tile)}
+.band--lapis{background:var(--lapis);color:#fff}
+.band--lapis h2,.band--lapis h3{color:#fff}
+.lead{max-width:62ch;color:var(--muted);margin-top:14px}
+.band--lapis .lead{color:#C9D6EA}
+.stack{display:flex;flex-direction:column;gap:18px}
+
+/* header */
+.top{background:var(--lapis-deep);color:#fff;position:sticky;top:0;z-index:20}
+.top__row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:10px;direction:ltr}
+.brand i{width:14px;height:14px;background:var(--gold);position:relative;display:inline-block}
+.brand i::after{content:"";position:absolute;inset:0;background:var(--turq);transform:rotate(45deg);mix-blend-mode:screen}
+.langbtn{font:inherit;font-size:.92rem;font-weight:600;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.45);border-radius:999px;padding:5px 16px;cursor:pointer}
+.langbtn:hover{background:rgba(255,255,255,.12)}
+.nav{overflow-x:auto;border-top:1px solid rgba(255,255,255,.12)}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;white-space:nowrap}
+.nav a{display:block;padding-block:10px;text-decoration:none;font-size:.95rem;color:#D5E0F0}
+.nav a:hover{color:#fff}
+
+/* hero */
+.hero{background:var(--lapis);color:#fff;position:relative;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero__in{position:relative;padding-block:72px 0}
+.hero h1{font-size:clamp(2.1rem,6.2vw,4.1rem);max-width:15ch;line-height:1.25}
+.hero p{max-width:56ch;margin-top:22px;color:#D5E0F0;font-size:1.08rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{font:inherit;font-weight:600;text-decoration:none;display:inline-block;padding:12px 26px;border-radius:6px;border:1.5px solid transparent;cursor:pointer}
+.btn--gold{background:var(--gold);color:#1B1403}
+.btn--gold:hover{background:#D9A93D}
+.btn--line{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
+.btn--line:hover{background:rgba(255,255,255,.1)}
+.btn--lapis{background:var(--lapis);color:#fff}
+.btn--lapis:hover{background:var(--lapis-deep)}
+.facts{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.2)}
+.facts li{padding:16px 0;padding-inline-end:18px;font-size:.98rem;color:#E6EDF8}
+.facts li + li{border-inline-start:1px solid rgba(255,255,255,.2);padding-inline-start:18px}
+.skyline{display:block;width:100%;height:auto;margin-top:26px}
+.sk-a{fill:#1D4A86}.sk-b{fill:#2A66A8}.sk-c{fill:var(--turq)}.sk-d{fill:var(--lapis-deep)}.sk-g{fill:var(--gold)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:start}
+.about .stack p{max-width:62ch}
+.card-dl{background:var(--tile);border-top:4px solid var(--turq);padding:24px}
+dl{margin:0}
+.rows div{display:grid;grid-template-columns:minmax(110px,38%) 1fr;gap:12px;padding-block:10px;border-bottom:1px solid var(--line)}
+.rows div:last-child{border-bottom:0}
+.rows dt{color:var(--muted);font-size:.93rem}
+.rows dd{margin:0;font-weight:500}
+.todo{border-bottom:2px dashed var(--gold);color:#7A5A12;font-weight:500}
+
+/* route */
+.route{list-style:none;margin:44px 0 0;padding:0;position:relative}
+.route::before{content:"";position:absolute;inset-block:22px;inset-inline-start:21px;width:2px;background:repeating-linear-gradient(to bottom,var(--turq) 0 8px,transparent 8px 14px)}
+.stop{display:grid;grid-template-columns:44px 1fr;gap:22px;position:relative}
+.star{width:44px;height:44px;position:relative;display:grid;place-items:center;color:#fff;font-family:var(--font-display);font-weight:700;font-size:1.05rem}
+.star::before,.star::after{content:"";position:absolute;inset:5px;background:var(--c,var(--lapis))}
+.star::after{transform:rotate(45deg)}
+.star span{position:relative;z-index:1}
+.stop__body{display:grid;grid-template-columns:1fr 1.5fr;gap:8px 40px;padding-bottom:14px}
+.stop h3{font-size:clamp(1.7rem,4vw,2.4rem);color:var(--c,var(--lapis))}
+.stop__nights{color:var(--muted);font-size:.95rem;margin-top:4px}
+.stop__sights{margin-top:10px;font-size:.97rem}
+.stop__sights b{color:var(--lapis);font-weight:600}
+.leg{margin-block:6px 26px;margin-inline-start:66px;font-size:.93rem;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 16px;display:inline-block}
+.c-tash{--c:#2F7D5B}.c-sam{--c:#1B4E9B}.c-bukh{--c:#A9712F}.c-khiva{--c:#16868B}
+
+/* beyond */
+.beyond{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+.beyond div{padding-block:18px;border-top:1px solid rgba(255,255,255,.22)}
+.beyond dt{font-family:var(--font-display);font-weight:700;font-size:1.2rem}
+.beyond dd{margin:6px 0 0;color:#C9D6EA;font-size:.98rem}
+
+/* programs */
+.progs{margin-top:36px;border-bottom:1px solid var(--line)}
+.prog{border-top:1px solid var(--line)}
+.prog summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:6px 24px;align-items:baseline;padding-block:20px}
+.prog summary::-webkit-details-marker{display:none}
+.prog__name{font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--lapis)}
+.prog__days{font-weight:600;color:var(--turq);white-space:nowrap}
+.prog__cities{grid-column:1/-1;color:var(--muted);font-size:.95rem}
+.prog summary::after{content:"+";grid-column:2;grid-row:1;justify-self:end;display:none}
+.prog[open] .prog__name{color:var(--turq)}
+.prog ol{margin:0 0 24px;padding-inline-start:1.4em;display:grid;gap:8px;max-width:70ch}
+.prog ol li::marker{color:var(--gold);font-weight:600}
+.includes{margin-top:22px;font-size:.96rem;color:var(--muted);max-width:75ch}
+.custom{margin-top:40px;background:var(--lapis);color:#fff;padding:32px;display:grid;grid-template-columns:1fr auto;gap:20px 40px;align-items:center}
+.custom h3{color:#fff;font-size:1.6rem}
+.custom p{color:#D5E0F0;margin-top:8px;max-width:58ch}
+
+/* services */
+.services{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+.services div{padding-block:18px;border-top:1px solid var(--line)}
+.services dt{font-weight:600;font-size:1.08rem;color:var(--lapis)}
+.services dd{margin:4px 0 0;color:var(--muted);font-size:.98rem}
+
+/* info */
+.info{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.info div{background:var(--paper);padding:20px 22px;border-inline-start:4px solid var(--turq)}
+.info dt{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--lapis)}
+.info dd{margin:6px 0 0;font-size:.98rem}
+
+/* terms */
+.terms{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;margin-top:36px;align-items:start}
+.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:20px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:16px}
+.steps li::before{content:counter(s);font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:1.5rem;line-height:1.2}
+.steps b{display:block;color:var(--lapis);font-weight:600}
+.steps span{color:var(--muted);font-size:.98rem}
+
+/* team */
+.team{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.team div{border:1.5px dashed var(--line);padding:20px;background:var(--paper)}
+.team b{display:block;color:var(--lapis)}
+.team span{display:block;margin-top:6px;font-size:.95rem}
+
+/* booking */
+.book{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f--full{grid-column:1/-1}
+label{font-size:.92rem;font-weight:600;color:#E6EDF8}
+input,select,textarea{font:inherit;color:var(--ink);background:#fff;border:1.5px solid transparent;border-radius:6px;padding:10px 12px;width:100%}
+textarea{min-height:96px;resize:vertical}
+.ready{grid-column:1/-1;background:#fff;color:var(--ink);padding:20px;border-radius:6px;border-top:4px solid var(--gold)}
+.ready[hidden]{display:none}
+.ready b{color:var(--lapis)}
+.ready pre{white-space:pre-wrap;font:inherit;font-size:.95rem;background:var(--tile);padding:14px;margin:12px 0;border-radius:4px;unicode-bidi:plaintext;text-align:start}
+.err{grid-column:1/-1;color:#FFD9A8;font-size:.95rem;min-height:1em}
+
+/* faq */
+.faq{margin-top:30px;max-width:820px;border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{cursor:pointer;padding-block:16px;font-weight:600;color:var(--lapis);font-size:1.08rem}
+.faq p{padding-bottom:18px;color:var(--muted);max-width:68ch}
+
+/* footer */
+.foot{background:var(--lapis-deep);color:#C9D6EA;padding-block:56px 28px}
+.foot h2{color:#fff}
+.foot__grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;margin-top:8px}
+.foot .rows div{border-color:rgba(255,255,255,.14)}
+.foot .rows dt{color:#9FB2D0}
+.foot .rows dd{color:#fff}
+.foot .todo{color:#F0CC7A}
+.foot small{display:block;margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:.88rem}
+
+@media (max-width:820px){
+  .band{padding-block:52px}
+  .about,.terms,.book,.foot__grid{grid-template-columns:1fr;gap:30px}
+  .stop__body{grid-template-columns:1fr}
+  .beyond,.services,.info{grid-template-columns:1fr}
+  .team{grid-template-columns:1fr}
+  .custom{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
+  .facts li + li{border-inline-start:0;padding-inline-start:0;border-top:1px solid rgba(255,255,255,.2)}
+  .hero__in{padding-top:52px}
+}
+@media (max-width:480px){
+  form{grid-template-columns:1fr}
+  .prog summary{grid-template-columns:1fr}
+  .rows div{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top__row">
+      <a class="brand" href="#top"><i aria-hidden="true"></i>JAFRA 10X</a>
+      <button class="langbtn" id="langbtn" type="button" aria-label="Switch language">English</button>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about" data-i18n="nav_about">من نحن</a></li>
+        <li><a href="#route" data-i18n="nav_route">الوجهات</a></li>
+        <li><a href="#programs" data-i18n="nav_programs">البرامج</a></li>
+        <li><a href="#services" data-i18n="nav_services">الخدمات</a></li>
+        <li><a href="#info" data-i18n="nav_info">معلومات السفر</a></li>
+        <li><a href="#terms" data-i18n="nav_terms">الحجز والدفع</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">تواصل معنا</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <canvas id="tiles" aria-hidden="true"></canvas>
+  <div class="wrap hero__in">
+    <h1 data-i18n="hero_h1">سمرقند، بخارى، خيوة. نرتّب لك الطريق كله.</h1>
+    <p data-i18n="hero_p">JAFRA 10X شركة سياحة مسجّلة في أوزبكستان. ننظّم رحلات خاصة وجماعية للمسافرين العرب: استقبال في المطار، سيارة مع سائق، فنادق، ومرشد يتكلم العربية.</p>
+    <div class="cta">
+      <a class="btn btn--gold" href="#booking" data-i18n="cta_quote">اطلب عرض رحلة</a>
+      <a class="btn btn--line" href="#programs" data-i18n="cta_programs">تصفّح البرامج</a>
+    </div>
+    <ul class="facts">
+      <li data-i18n="fact1">بدون تأشيرة لمواطني دول الخليج حتى 30 يوماً</li>
+      <li data-i18n="fact2">رحلات طيران مباشرة من الخليج إلى طشقند</li>
+      <li data-i18n="fact3">طعام حلال ومساجد في كل مدينة</li>
+    </ul>
+  </div>
+  <svg class="skyline" viewBox="0 0 1200 190" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <!-- left madrasa -->
+    <rect class="sk-a" x="70" y="18" width="20" height="172"/><rect class="sk-c" x="66" y="12" width="28" height="8"/>
+    <rect class="sk-a" x="330" y="18" width="20" height="172"/><rect class="sk-c" x="326" y="12" width="28" height="8"/>
+    <rect class="sk-b" x="96" y="92" width="228" height="98"/>
+    <rect class="sk-a" x="150" y="48" width="120" height="142"/>
+    <path class="sk-d" d="M172 190V112Q172 84 210 66Q248 84 248 112V190Z"/>
+    <rect class="sk-g" x="150" y="44" width="120" height="5"/>
+    <path class="sk-d" d="M108 190v-52q0-14 14-22q14 8 14 22v52zM284 190v-52q0-14 14-22q14 8 14 22v52z"/>
+    <!-- centre madrasa with domes -->
+    <rect class="sk-b" x="440" y="100" width="320" height="90"/>
+    <rect class="sk-a" x="530" y="40" width="140" height="150"/>
+    <path class="sk-d" d="M554 190V108Q554 78 600 58Q646 78 646 108V190Z"/>
+    <rect class="sk-g" x="530" y="36" width="140" height="5"/>
+    <rect class="sk-a" x="462" y="78" width="46" height="24"/>
+    <path class="sk-c" d="M456 78C448 52 470 36 485 24C500 36 522 52 514 78Z"/>
+    <rect class="sk-a" x="692" y="78" width="46" height="24"/>
+    <path class="sk-c" d="M686 78C678 52 700 36 715 24C730 36 752 52 744 78Z"/>
+    <path class="sk-d" d="M452 190v-46q0-13 13-20q13 7 13 20v46zM490 190v-46q0-13 13-20q13 7 13 20v46zM684 190v-46q0-13 13-20q13 7 13 20v46zM722 190v-46q0-13 13-20q13 7 13 20v46z"/>
+    <!-- right madrasa -->
+    <rect class="sk-a" x="850" y="18" width="20" height="172"/><rect class="sk-c" x="846" y="12" width="28" height="8"/>
+    <rect class="sk-a" x="1110" y="18" width="20" height="172"/><rect class="sk-c" x="1106" y="12" width="28" height="8"/>
+    <rect class="sk-b" x="876" y="92" width="228" height="98"/>
+    <rect class="sk-a" x="930" y="48" width="120" height="142"/>
+    <path class="sk-d" d="M952 190V112Q952 84 990 66Q1028 84 1028 112V190Z"/>
+    <rect class="sk-g" x="930" y="44" width="120" height="5"/>
+    <path class="sk-d" d="M888 190v-52q0-14 14-22q14 8 14 22v52zM1064 190v-52q0-14 14-22q14 8 14 22v52z"/>
+  </svg>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <div class="stack">
+      <h2 data-i18n="about_h">من نحن</h2>
+      <p data-i18n="about_p1">JAFRA 10X شركة متخصصة في السياحة داخل آسيا الوسطى، ومقرّها أوزبكستان. نعمل مع المسافرين العرب، وخصوصاً من دول الخليج، ونعرف ما يهمّهم: الخصوصية للعائلات، الطعام الحلال، أوقات الصلاة، ومرافق يتكلم لغتهم.</p>
+      <p data-i18n="about_p2">نرتّب الرحلة كاملة بأنفسنا: الاستقبال في المطار، السيارة والسائق، الفنادق، تذاكر القطار، والجولات. تتعامل مع جهة واحدة من أول رسالة حتى رحلة العودة.</p>
+      <p data-i18n="about_p3">نصوّر الأماكن التي نرسل ضيوفنا إليها وننشرها على صفحتنا في إنستغرام، فترى الوجهة قبل أن تحجز.</p>
+    </div>
+    <dl class="card-dl rows">
+      <div><dt data-i18n="co_name_l">الاسم التجاري</dt><dd>JAFRA 10X</dd></div>
+      <div><dt data-i18n="co_country_l">بلد التسجيل</dt><dd data-i18n="co_country_v">جمهورية أوزبكستان</dd></div>
+      <div><dt data-i18n="co_act_l">النشاط</dt><dd data-i18n="co_act_v">تنظيم الرحلات السياحية</dd></div>
+      <div><dt data-i18n="co_lic_l">رقم الترخيص</dt><dd><span class="todo" data-i18n="todo_lic">يضاف بعد صدور الترخيص</span></dd></div>
+      <div><dt data-i18n="co_lang_l">لغات الخدمة</dt><dd data-i18n="co_lang_v">العربية والإنجليزية</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band band--tile" id="route">
+  <div class="wrap">
+    <h2 data-i18n="route_h">الطريق الكلاسيكي: أربع مدن على طريق الحرير</h2>
+    <p class="lead" data-i18n="route_lead">معظم الرحلات تسير على هذا الخط من الشرق إلى الغرب. القطار السريع يربط المدن الثلاث الأولى، وخيوة تصلها بالسيارة أو القطار أو الطائرة.</p>
+
+    <ol class="route">
+      <li class="c-tash">
+        <div class="stop">
+          <div class="star"><span>1</span></div>
+          <div class="stop__body">
+            <div><h3 data-i18n="tash_n">طشقند</h3><p class="stop__nights" data-i18n="tash_nights">ليلتان إلى ثلاث ليالٍ</p></div>
+            <div>
+              <p data-i18n="tash_p">العاصمة ونقطة الوصول. مدينة واسعة خضراء تجمع الأسواق القديمة مع الأحياء الحديثة.</p>
+              <p class="stop__sights" data-i18n="tash_s"><b>أهم المعالم:</b> مجمع حضرة الإمام ومصحف عثمان، سوق تشورسو، محطات المترو المزخرفة، ميدان الأمير تيمور، طشقند سيتي.</p>
+            </div>
+          </div>
+        </div>
+        <span class="leg" data-i18n="leg1">إلى سمرقند: قطار أفروسياب السريع، نحو ساعتين وربع</span>
+      </li>
+      <li class="c-sam">
+        <div class="stop">
+          <div class="star"><span>2</span></div>
+          <div class="stop__body">
+            <div><h3 data-i18n="sam_n">سمرقند</h3><p class="stop__nights" data-i18n="sam_nights">ليلتان</p></div>
+            <div>
+              <p data-i18n="sam_p">عاصمة الأمير تيمور وأشهر مدن طريق الحرير. قبابها الزرقاء وبلاطها المزجّج هما صورة أوزبكستان في العالم.</p>
+              <p class="stop__sights" data-i18n="sam_s"><b>أهم المعالم:</b> ميدان ريجستان، ضريح غور أمير، مقبرة شاه زنده، مسجد بيبي خانم، مرصد أولوغ بيك، مجمع الإمام البخاري.</p>
+            </div>
+          </div>
+        </div>
+        <span class="leg" data-i18n="leg2">إلى بخارى: بالقطار، نحو ساعة ونصف إلى ساعتين</span>
+      </li>
+      <li class="c-bukh">
+        <div class="stop">
+          <div class="star"><span>3</span></div>
+          <div class="stop__body">
+            <div><h3 data-i18n="bukh_n">بخارى</h3><p class="stop__nights" data-i18n="bukh_nights">ليلتان</p></div>
+            <div>
+              <p data-i18n="bukh_p">مدينة قديمة ما زالت مأهولة، تمشي فيها على الأقدام بين المدارس والأسواق المقبّبة.</p>
+              <p class="stop__sights" data-i18n="bukh_s"><b>أهم المعالم:</b> مئذنة ومسجد كالان، مدرسة مير عرب، قلعة أرك، لب حوض، الأسواق المقبّبة، مجمع بهاء الدين نقشبند.</p>
+            </div>
+          </div>
+        </div>
+        <span class="leg" data-i18n="leg3">إلى خيوة: بالسيارة عبر صحراء قيزيل قوم، نحو ست إلى سبع ساعات، أو بالقطار</span>
+      </li>
+      <li class="c-khiva">
+        <div class="stop">
+          <div class="star"><span>4</span></div>
+          <div class="stop__body">
+            <div><h3 data-i18n="khiva_n">خيوة</h3><p class="stop__nights" data-i18n="khiva_nights">ليلة إلى ليلتين</p></div>
+            <div>
+              <p data-i18n="khiva_p">مدينة مسوّرة صغيرة من الطوب الطيني، محفوظة كأنها متحف مفتوح.</p>
+              <p class="stop__sights" data-i18n="khiva_s"><b>أهم المعالم:</b> إيتشان قلعة، مئذنة كالتا مينور، مدرسة محمد أمين خان، مسجد الجمعة بأعمدته الخشبية، قصر طاش حولي.</p>
+            </div>
+          </div>
+        </div>
+        <span class="leg" data-i18n="leg4">العودة إلى طشقند: بالطائرة من أورغنتش، نحو ساعة ونصف</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band--lapis" id="beyond">
+  <div class="wrap">
+    <h2 data-i18n="bey_h">خارج الطريق الكلاسيكي</h2>
+    <p class="lead" data-i18n="bey_lead">وجهات نضيفها لمن عنده وقت أكثر أو زار المدن الأربع من قبل.</p>
+    <dl class="beyond">
+      <div><dt data-i18n="bey1_t">جبال تشيمغان وبحيرة تشارفاك</dt><dd data-i18n="bey1_d">على بعد ساعة ونصف تقريباً من طشقند. تلفريك، منتجع أميرسوي للتزلج شتاءً، وهواء بارد صيفاً.</dd></div>
+      <div><dt data-i18n="bey2_t">وادي فرغانة</dt><dd data-i18n="bey2_d">ورش الحرير في مرغلان وخزف ريشتان، وأسواق لا يصلها كثير من السياح.</dd></div>
+      <div><dt data-i18n="bey3_t">شهر سبز</dt><dd data-i18n="bey3_d">مسقط رأس الأمير تيمور وبقايا قصره آق سراي. رحلة يوم من سمرقند عبر الجبال.</dd></div>
+      <div><dt data-i18n="bey4_t">نوقوس وبحر آرال</dt><dd data-i18n="bey4_d">متحف سافيتسكي للفن، ورحلة بسيارات الدفع الرباعي إلى ما بقي من بحر آرال.</dd></div>
+      <div><dt data-i18n="bey5_t">ترمذ</dt><dd data-i18n="bey5_d">ضريح الإمام الترمذي وآثار قديمة على ضفة نهر جيحون في أقصى الجنوب.</dd></div>
+      <div><dt data-i18n="bey6_t">كازاخستان وقيرغيزستان</dt><dd data-i18n="bey6_d">ندمج أوزبكستان مع ألماتي أو بحيرة إيسيك كول في رحلة واحدة عند الطلب.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band" id="programs">
+  <div class="wrap">
+    <h2 data-i18n="pr_h">برامج جاهزة تعدّلها كما تريد</h2>
+    <p class="lead" data-i18n="pr_lead">هذه برامج نموذجية. نغيّر عدد الأيام والمدن والفنادق حسب طلبك، والسعر يصلك في عرض مكتوب.</p>
+
+    <div class="progs">
+      <details class="prog" open>
+        <summary>
+          <span class="prog__name" data-i18n="p2_n">طريق الحرير الكلاسيكي</span>
+          <span class="prog__days" data-i18n="p2_d">7 أيام</span>
+          <span class="prog__cities" data-i18n="p2_c">طشقند، سمرقند، بخارى</span>
+        </summary>
+        <ol data-i18n="p2_o">
+          <li>الوصول إلى طشقند، الاستقبال في المطار والانتقال إلى الفندق.</li>
+          <li>جولة طشقند: مجمع حضرة الإمام، سوق تشورسو، المترو، ميدان الأمير تيمور.</li>
+          <li>القطار السريع إلى سمرقند. ميدان ريجستان وضريح غور أمير.</li>
+          <li>سمرقند: شاه زنده، مسجد بيبي خانم، سوق سياب، مرصد أولوغ بيك.</li>
+          <li>القطار إلى بخارى. مساء حول لب حوض.</li>
+          <li>بخارى: قلعة أرك، مجمع كالان، الأسواق المقبّبة. العودة مساءً إلى طشقند بالقطار.</li>
+          <li>وقت حر للتسوق ثم التوديع في المطار.</li>
+        </ol>
+      </details>
+
+      <details class="prog">
+        <summary>
+          <span class="prog__name" data-i18n="p1_n">طشقند والجبال</span>
+          <span class="prog__days" data-i18n="p1_d">5 أيام</span>
+          <span class="prog__cities" data-i18n="p1_c">طشقند، تشيمغان، بحيرة تشارفاك</span>
+        </summary>
+        <ol data-i18n="p1_o">
+          <li>الوصول إلى طشقند، الاستقبال في المطار والانتقال إلى الفندق.</li>
+          <li>جولة طشقند القديمة والحديثة: حضرة الإمام، سوق تشورسو، المترو، طشقند سيتي.</li>
+          <li>يوم كامل في الجبال: تلفريك تشيمغان أو أميرسوي، ثم بحيرة تشارفاك.</li>
+          <li>يوم حر: تسوق، حدائق، ومطاعم. يمكن إضافة رحلة يوم إلى سمرقند بالقطار السريع.</li>
+          <li>التوديع في المطار.</li>
+        </ol>
+      </details>
+
+      <details class="prog">
+        <summary>
+          <span class="prog__name" data-i18n="p3_n">على خطى الأئمة</span>
+          <span class="prog__days" data-i18n="p3_d">6 أيام</span>
+          <span class="prog__cities" data-i18n="p3_c">طشقند، سمرقند، بخارى</span>
+        </summary>
+        <ol data-i18n="p3_o">
+          <li>الوصول إلى طشقند والاستقبال في المطار.</li>
+          <li>مجمع حضرة الإمام ومصحف عثمان، ثم القطار السريع إلى سمرقند.</li>
+          <li>سمرقند: مجمع الإمام البخاري، وشاه زنده حيث ضريح قثم بن العباس.</li>
+          <li>القطار إلى بخارى. زيارة مجمع بهاء الدين نقشبند.</li>
+          <li>بخارى القديمة: مسجد كالان ومدرسة مير عرب. العودة إلى طشقند.</li>
+          <li>التوديع في المطار.</li>
+        </ol>
+      </details>
+
+      <details class="prog">
+        <summary>
+          <span class="prog__name" data-i18n="p4_n">الجولة الكبرى</span>
+          <span class="prog__days" data-i18n="p4_d">10 أيام</span>
+          <span class="prog__cities" data-i18n="p4_c">طشقند، خيوة، بخارى، سمرقند، تشيمغان</span>
+        </summary>
+        <ol data-i18n="p4_o">
+          <li>الوصول إلى طشقند والاستقبال في المطار.</li>
+          <li>جولة طشقند.</li>
+          <li>الطيران إلى أورغنتش ثم خيوة. جولة داخل إيتشان قلعة.</li>
+          <li>من خيوة إلى بخارى بالسيارة عبر صحراء قيزيل قوم.</li>
+          <li>بخارى: قلعة أرك، مجمع كالان، الأسواق المقبّبة.</li>
+          <li>القطار إلى سمرقند. ميدان ريجستان مساءً.</li>
+          <li>سمرقند: غور أمير، شاه زنده، بيبي خانم، مرصد أولوغ بيك.</li>
+          <li>مجمع الإمام البخاري صباحاً، ثم القطار السريع إلى طشقند.</li>
+          <li>يوم في جبال تشيمغان وبحيرة تشارفاك.</li>
+          <li>التوديع في المطار.</li>
+        </ol>
+      </details>
+    </div>
+
+    <p class="includes" data-i18n="pr_inc">تشمل البرامج: الاستقبال والتوديع في المطار، التنقلات بسيارة خاصة، الإقامة مع الإفطار، تذاكر القطار، ومرشداً يتكلم العربية في الجولات. تذاكر الطيران الدولي غير مشمولة.</p>
+
+    <div class="custom">
+      <div>
+        <h3 data-i18n="cu_h">رحلة خاصة حسب الطلب</h3>
+        <p data-i18n="cu_p">تختار المدن، مستوى الفندق، نوع السيارة، وعدد الأيام مع السائق. مناسبة للعائلات والمجموعات الصغيرة.</p>
+      </div>
+      <a class="btn btn--gold" href="#booking" data-i18n="cta_quote">اطلب عرض رحلة</a>
+    </div>
+  </div>
+</section>
+
+<section class="band band--tile" id="services">
+  <div class="wrap">
+    <h2 data-i18n="sv_h">خدماتنا</h2>
+    <dl class="services">
+      <div><dt data-i18n="sv1_t">الاستقبال والتوديع في المطار</dt><dd data-i18n="sv1_d">سائق ينتظرك باسمك عند الوصول ويوصلك إلى المطار عند المغادرة.</dd></div>
+      <div><dt data-i18n="sv2_t">سيارة خاصة مع سائق</dt><dd data-i18n="sv2_d">سيدان، سيارة عائلية، أو فان للمجموعات. باليوم أو طوال الرحلة.</dd></div>
+      <div><dt data-i18n="sv3_t">حجز الفنادق والمنتجعات</dt><dd data-i18n="sv3_d">من فنادق المدن القديمة إلى منتجعات الجبال، حسب ميزانيتك.</dd></div>
+      <div><dt data-i18n="sv4_t">مرشد يتكلم العربية</dt><dd data-i18n="sv4_d">يرافقك في الجولات ويشرح تاريخ المكان بلغتك.</dd></div>
+      <div><dt data-i18n="sv5_t">تذاكر القطار والطيران الداخلي</dt><dd data-i18n="sv5_d">نحجز مقاعد القطار السريع مبكراً لأنها تنفد في الموسم.</dd></div>
+      <div><dt data-i18n="sv6_t">رحلات جماعية</dt><dd data-i18n="sv6_d">برامج ثابتة بتواريخ محددة وسعر للفرد.</dd></div>
+      <div><dt data-i18n="sv7_t">ترتيبات العائلات</dt><dd data-i18n="sv7_d">غرف متصلة، مقاعد أطفال، ومطاعم حلال مناسبة للعائلات.</dd></div>
+      <div><dt data-i18n="sv8_t">دعم طوال الرحلة</dt><dd data-i18n="sv8_d">رقم واحد يرد عليك بالعربية من الوصول إلى المغادرة.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band" id="info">
+  <div class="wrap">
+    <h2 data-i18n="in_h">معلومات قبل السفر</h2>
+    <dl class="info">
+      <div style="background:var(--tile)"><dt data-i18n="in1_t">التأشيرة</dt><dd data-i18n="in1_d">مواطنو دول مجلس التعاون الخليجي يدخلون أوزبكستان بدون تأشيرة لمدة تصل إلى 30 يوماً، وقد يُطلب إبراز تذكرة المغادرة. الجنسيات الأخرى تحتاج في الغالب إلى تأشيرة إلكترونية. تحقّق من الشروط الرسمية قبل الحجز.</dd></div>
+      <div style="background:var(--tile)"><dt data-i18n="in2_t">أفضل وقت للزيارة</dt><dd data-i18n="in2_d">الربيع من أبريل إلى يونيو، والخريف من سبتمبر إلى أوائل نوفمبر. الصيف حار في المدن ومعتدل في الجبال، والشتاء موسم التزلج.</dd></div>
+      <div style="background:var(--tile)"><dt data-i18n="in3_t">العملة</dt><dd data-i18n="in3_d">السوم الأوزبكي. البطاقات مقبولة في الفنادق والمطاعم الكبيرة، والنقد ضروري في الأسواق.</dd></div>
+      <div style="background:var(--tile)"><dt data-i18n="in4_t">اللغة</dt><dd data-i18n="in4_d">الأوزبكية هي اللغة الرسمية والروسية منتشرة. الإنجليزية محدودة خارج الفنادق، لذلك نوفّر مرافقاً يتكلم العربية.</dd></div>
+      <div style="background:var(--tile)"><dt data-i18n="in5_t">الطعام</dt><dd data-i18n="in5_d">المطبخ الأوزبكي حلال في عمومه: البلوف، الشاشليك، السمسا، والخبز الطازج من التنور.</dd></div>
+      <div style="background:var(--tile)"><dt data-i18n="in6_t">الصلاة</dt><dd data-i18n="in6_d">المساجد متوفرة في كل المدن، ونرتّب مواعيد الجولات حول أوقات الصلاة عند الطلب.</dd></div>
+      <div style="background:var(--tile)"><dt data-i18n="in7_t">الهاتف والإنترنت</dt><dd data-i18n="in7_d">شريحة محلية تُشترى في المطار بجواز السفر، والإنترنت جيد في المدن.</dd></div>
+      <div style="background:var(--tile)"><dt data-i18n="in8_t">التوقيت</dt><dd data-i18n="in8_d">UTC+5: ساعة واحدة بعد توقيت الإمارات وساعتان بعد توقيت السعودية.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band band--tile" id="terms">
+  <div class="wrap">
+    <h2 data-i18n="tm_h">الحجز والدفع</h2>
+    <div class="terms">
+      <ol class="steps">
+        <li><div><b data-i18n="st1_t">أرسل طلبك</b><span data-i18n="st1_d">املأ نموذج الطلب أو راسلنا مباشرة. اذكر التواريخ وعدد المسافرين.</span></div></li>
+        <li><div><b data-i18n="st2_t">استلم عرضاً مكتوباً</b><span data-i18n="st2_d">نرسل لك البرنامج والسعر النهائي، وما يشمله وما لا يشمله.</span></div></li>
+        <li><div><b data-i18n="st3_t">وقّع العقد وادفع العربون</b><span data-i18n="st3_d">تُقدَّم الخدمة بعد عقد مكتوب، ورقي أو إلكتروني، وفق قوانين جمهورية أوزبكستان. قيمة العربون تُذكر في العرض.</span></div></li>
+        <li><div><b data-i18n="st4_t">استلم تأكيد الحجز</b><span data-i18n="st4_d">يصلك تأكيد بالفنادق والتنقلات وبيانات من يستقبلك في المطار.</span></div></li>
+        <li><div><b data-i18n="st5_t">سدّد المبلغ المتبقي</b><span data-i18n="st5_d">قبل الوصول أو عنده، حسب ما يحدده العقد.</span></div></li>
+      </ol>
+      <dl class="card-dl rows" style="background:var(--paper)">
+        <div><dt data-i18n="tm1_l">طرق الدفع</dt><dd data-i18n="tm1_v">بطاقة مصرفية أو تحويل بنكي إلى حساب الشركة. التفاصيل تُرسل مع العرض.</dd></div>
+        <div><dt data-i18n="tm2_l">الأسعار</dt><dd data-i18n="tm2_v">تُحدَّد لكل رحلة حسب الموسم وعدد المسافرين ومستوى الفندق.</dd></div>
+        <div><dt data-i18n="tm3_l">الإلغاء والاسترداد</dt><dd data-i18n="tm3_v">شروط الإلغاء ونسب الاسترداد تُذكر في العقد قبل أي دفع.</dd></div>
+        <div><dt data-i18n="tm4_l">التأمين</dt><dd data-i18n="tm4_v">ننصح بتأمين سفر يغطي الرحلة كاملة، ونساعدك في ترتيبه عند الطلب.</dd></div>
+      </dl>
+    </div>
+
+    <h3 style="margin-top:56px" data-i18n="team_h">المسؤولون عن خدماتك</h3>
+    <div class="team">
+      <div><b data-i18n="tr1">المدير العام</b><span class="todo" data-i18n="todo_name">يضاف الاسم ووسيلة التواصل</span></div>
+      <div><b data-i18n="tr2">مسؤول الحجوزات والبرامج</b><span class="todo" data-i18n="todo_name">يضاف الاسم ووسيلة التواصل</span></div>
+      <div><b data-i18n="tr3">مسؤول النقل والاستقبال</b><span class="todo" data-i18n="todo_name">يضاف الاسم ووسيلة التواصل</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--lapis" id="booking">
+  <div class="wrap book">
+    <div class="stack">
+      <h2 data-i18n="bk_h">اطلب عرض رحلة</h2>
+      <p class="lead" style="margin-top:0" data-i18n="bk_p">اكتب تفاصيل رحلتك وسنجهّز لك نص الطلب. انسخه وأرسله لنا، ونرد عليك بعرض مكتوب فيه البرنامج والسعر.</p>
+    </div>
+    <form id="req" novalidate>
+      <div class="f"><label for="f-name" data-i18n="f_name">الاسم</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="f"><label for="f-phone" data-i18n="f_phone">رقم الهاتف أو واتساب</label><input id="f-phone" name="phone" inputmode="tel" autocomplete="tel" dir="ltr" required></div>
+      <div class="f"><label for="f-type" data-i18n="f_type">نوع الرحلة</label>
+        <select id="f-type" name="type">
+          <option value="private" data-i18n="o_private">رحلة خاصة</option>
+          <option value="group" data-i18n="o_group">رحلة جماعية</option>
+        </select></div>
+      <div class="f"><label for="f-prog" data-i18n="f_prog">البرنامج</label>
+        <select id="f-prog" name="prog">
+          <option value="p2" data-i18n="p2_n">طريق الحرير الكلاسيكي</option>
+          <option value="p1" data-i18n="p1_n">طشقند والجبال</option>
+          <option value="p3" data-i18n="p3_n">على خطى الأئمة</option>
+          <option value="p4" data-i18n="p4_n">الجولة الكبرى</option>
+          <option value="cu" data-i18n="o_custom">برنامج حسب الطلب</option>
+        </select></div>
+      <div class="f"><label for="f-pax" data-i18n="f_pax">عدد المسافرين</label><input id="f-pax" name="pax" type="number" min="1" value="2" inputmode="numeric"></div>
+      <div class="f"><label for="f-date" data-i18n="f_date">تاريخ الوصول التقريبي</label><input id="f-date" name="date" type="date"></div>
+      <div class="f f--full"><label for="f-notes" data-i18n="f_notes">ملاحظات</label><textarea id="f-notes" name="notes"></textarea></div>
+      <p class="err" id="err" role="alert"></p>
+      <div class="f--full"><button class="btn btn--gold" type="submit" data-i18n="f_submit">جهّز نص الطلب</button></div>
+      <div class="ready" id="ready" hidden>
+        <b data-i18n="rd_h">نص طلبك جاهز. لم يُرسل بعد.</b>
+        <pre id="summary"></pre>
+        <button class="btn btn--lapis" type="button" id="copy" data-i18n="rd_copy">انسخ النص</button>
+        <p style="margin-top:12px;font-size:.95rem;color:var(--muted)" data-i18n="rd_p">الصق النص في رسالة إلى أحد عناوين التواصل في أسفل الصفحة.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap">
+    <h2 data-i18n="fq_h">أسئلة متكررة</h2>
+    <div class="faq">
+      <details><summary data-i18n="q1">هل الرحلات مناسبة للعائلات والأطفال؟</summary><p data-i18n="a1">نعم. نختار فنادق بغرف عائلية وسيارات واسعة، ونخفّف برنامج المشي عند الحاجة.</p></details>
+      <details><summary data-i18n="q2">كم يوماً أحتاج؟</summary><p data-i18n="a2">خمسة أيام تكفي لطشقند والجبال. سبعة أيام لطشقند وسمرقند وبخارى. عشرة أيام إذا أضفت خيوة.</p></details>
+      <details><summary data-i18n="q3">هل يمكن تغيير البرنامج بعد الحجز؟</summary><p data-i18n="a3">نعم قبل السفر، حسب توفر الفنادق والقطارات. التغييرات بعد الدفع تخضع لشروط العقد.</p></details>
+      <details><summary data-i18n="q4">هل الأسعار تشمل تذاكر الطيران؟</summary><p data-i18n="a4">لا. الأسعار تشمل الخدمات داخل أوزبكستان فقط، ويمكننا اقتراح رحلات الطيران المناسبة لبرنامجك.</p></details>
+      <details><summary data-i18n="q5">هل تنظّمون رحلات إلى دول أخرى؟</summary><p data-i18n="a5">نعمل أيضاً في كازاخستان وقيرغيزستان، ويمكن دمج أكثر من دولة في رحلة واحدة.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="stack">
+        <h2 data-i18n="ct_h">تواصل معنا</h2>
+        <p data-i18n="ct_p">نرد بالعربية والإنجليزية. أرسل نص طلبك أو أي سؤال عن السفر إلى أوزبكستان.</p>
+      </div>
+      <dl class="rows">
+        <div><dt data-i18n="ct1">الاسم القانوني للشركة</dt><dd><span class="todo" data-i18n="todo_add">يضاف</span></dd></div>
+        <div><dt data-i18n="ct2">الرقم الضريبي (STIR / INN)</dt><dd><span class="todo" data-i18n="todo_add">يضاف</span></dd></div>
+        <div><dt data-i18n="co_lic_l">رقم الترخيص</dt><dd><span class="todo" data-i18n="todo_lic">يضاف بعد صدور الترخيص</span></dd></div>
+        <div><dt data-i18n="ct3">العنوان</dt><dd><span class="todo" data-i18n="todo_add">يضاف</span></dd></div>
+        <div><dt data-i18n="ct4">الهاتف وواتساب</dt><dd><span class="todo" data-i18n="todo_add">يضاف</span></dd></div>
+        <div><dt data-i18n="ct5">البريد الإلكتروني</dt><dd><span class="todo" data-i18n="todo_add">يضاف</span></dd></div>
+        <div><dt data-i18n="ct6">إنستغرام</dt><dd><span class="todo" data-i18n="todo_add">يضاف</span></dd></div>
+        <div><dt data-i18n="ct7">الموقع</dt><dd dir="ltr" style="text-align:start">jafra10x.com</dd></div>
+      </dl>
+    </div>
+    <small data-i18n="ft_small">© 2026 JAFRA 10X. جميع الحقوق محفوظة. تُقدَّم الخدمات السياحية بعقد مكتوب وفق قوانين جمهورية أوزبكستان.</small>
+  </div>
+</footer>
+
+<script>
+var EN = {
+nav_about:"About",nav_route:"Destinations",nav_programs:"Tours",nav_services:"Services",nav_info:"Travel info",nav_terms:"Booking and payment",nav_contact:"Contact",
+hero_h1:"Samarkand, Bukhara, Khiva. We arrange the whole road.",
+hero_p:"JAFRA 10X is a travel company registered in Uzbekistan. We run private and group trips for Arab travellers: airport pickup, a car with a driver, hotels, and an Arabic-speaking guide.",
+cta_quote:"Request a trip quote",cta_programs:"Browse the tours",
+fact1:"No visa for Gulf citizens for up to 30 days",fact2:"Direct flights from the Gulf to Tashkent",fact3:"Halal food and mosques in every city",
+about_h:"About us",
+about_p1:"JAFRA 10X specialises in travel across Central Asia and is based in Uzbekistan. We work with Arab travellers, especially from the Gulf, and we know what matters to them: privacy for families, halal food, prayer times, and a companion who speaks their language.",
+about_p2:"We arrange the whole trip ourselves: airport pickup, car and driver, hotels, train tickets, and tours. You deal with one company from your first message to your flight home.",
+about_p3:"We film the places we send our guests to and post them on our Instagram page, so you see the destination before you book.",
+co_name_l:"Trade name",co_country_l:"Country of registration",co_country_v:"Republic of Uzbekistan",co_act_l:"Activity",co_act_v:"Tour operation",co_lic_l:"License number",co_lang_l:"Service languages",co_lang_v:"Arabic and English",
+todo_lic:"To be added once the license is issued",todo_add:"To be added",todo_name:"Name and contact to be added",
+route_h:"The classic route: four cities on the Silk Road",
+route_lead:"Most trips follow this line from east to west. The high-speed train links the first three cities; Khiva is reached by car, train or plane.",
+tash_n:"Tashkent",tash_nights:"Two to three nights",
+tash_p:"The capital and your arrival point. A wide, green city where old bazaars sit next to new districts.",
+tash_s:"<b>Main sights:</b> Hazrati Imam complex and the Uthman Quran, Chorsu Bazaar, the decorated metro stations, Amir Timur Square, Tashkent City.",
+leg1:"To Samarkand: Afrosiyob high-speed train, about 2 hours 15 minutes",
+sam_n:"Samarkand",sam_nights:"Two nights",
+sam_p:"Amir Timur's capital and the best-known city of the Silk Road. Its blue domes and glazed tiles are the image of Uzbekistan worldwide.",
+sam_s:"<b>Main sights:</b> Registan Square, Gur-e-Amir mausoleum, Shah-i-Zinda necropolis, Bibi-Khanym Mosque, Ulugh Beg Observatory, Imam al-Bukhari complex.",
+leg2:"To Bukhara: by train, about 1.5 to 2 hours",
+bukh_n:"Bukhara",bukh_nights:"Two nights",
+bukh_p:"An old city that people still live in. You walk between madrasas and domed bazaars on foot.",
+bukh_s:"<b>Main sights:</b> Kalyan Minaret and Mosque, Mir-i-Arab Madrasa, the Ark fortress, Lyabi-Hauz, the trading domes, Bahauddin Naqshband complex.",
+leg3:"To Khiva: by car across the Kyzylkum desert, about 6 to 7 hours, or by train",
+khiva_n:"Khiva",khiva_nights:"One to two nights",
+khiva_p:"A small walled city of mud brick, preserved like an open-air museum.",
+khiva_s:"<b>Main sights:</b> Itchan Kala, Kalta Minor minaret, Muhammad Amin Khan Madrasa, the Juma Mosque with its wooden columns, Tash Hauli Palace.",
+leg4:"Back to Tashkent: by plane from Urgench, about 1.5 hours",
+bey_h:"Beyond the classic route",bey_lead:"Places we add for travellers with more time, or who have already seen the four cities.",
+bey1_t:"Chimgan mountains and Charvak lake",bey1_d:"About an hour and a half from Tashkent. Cable cars, the Amirsoy ski resort in winter, and cool air in summer.",
+bey2_t:"Fergana Valley",bey2_d:"Silk workshops in Margilan, Rishtan ceramics, and markets few tourists reach.",
+bey3_t:"Shahrisabz",bey3_d:"Amir Timur's birthplace and the remains of his Ak-Saray palace. A day trip from Samarkand over the mountains.",
+bey4_t:"Nukus and the Aral Sea",bey4_d:"The Savitsky art museum, and a 4x4 trip to what remains of the Aral Sea.",
+bey5_t:"Termez",bey5_d:"The mausoleum of Imam al-Tirmidhi and ancient sites on the bank of the Amu Darya in the far south.",
+bey6_t:"Kazakhstan and Kyrgyzstan",bey6_d:"On request we combine Uzbekistan with Almaty or Lake Issyk-Kul in one trip.",
+pr_h:"Ready-made tours you can change",pr_lead:"These are sample tours. We change the days, cities and hotels to suit you, and the price comes in a written quote.",
+p1_n:"Tashkent and the mountains",p1_d:"5 days",p1_c:"Tashkent, Chimgan, Charvak lake",
+p1_o:"<li>Arrive in Tashkent, airport pickup and transfer to the hotel.</li><li>Old and new Tashkent: Hazrati Imam, Chorsu Bazaar, the metro, Tashkent City.</li><li>Full day in the mountains: Chimgan or Amirsoy cable car, then Charvak lake.</li><li>Free day: shopping, parks and restaurants. A day trip to Samarkand by high-speed train can be added.</li><li>Transfer to the airport.</li>",
+p2_n:"Classic Silk Road",p2_d:"7 days",p2_c:"Tashkent, Samarkand, Bukhara",
+p2_o:"<li>Arrive in Tashkent, airport pickup and transfer to the hotel.</li><li>Tashkent tour: Hazrati Imam complex, Chorsu Bazaar, the metro, Amir Timur Square.</li><li>High-speed train to Samarkand. Registan Square and Gur-e-Amir.</li><li>Samarkand: Shah-i-Zinda, Bibi-Khanym Mosque, Siab Bazaar, Ulugh Beg Observatory.</li><li>Train to Bukhara. Evening around Lyabi-Hauz.</li><li>Bukhara: the Ark, Kalyan complex, the trading domes. Evening train back to Tashkent.</li><li>Free time for shopping, then transfer to the airport.</li>",
+p3_n:"In the footsteps of the imams",p3_d:"6 days",p3_c:"Tashkent, Samarkand, Bukhara",
+p3_o:"<li>Arrive in Tashkent and airport pickup.</li><li>Hazrati Imam complex and the Uthman Quran, then the high-speed train to Samarkand.</li><li>Samarkand: Imam al-Bukhari complex, and Shah-i-Zinda with the shrine of Qutham ibn Abbas.</li><li>Train to Bukhara. Visit the Bahauddin Naqshband complex.</li><li>Old Bukhara: Kalyan Mosque and Mir-i-Arab Madrasa. Return to Tashkent.</li><li>Transfer to the airport.</li>",
+p4_n:"The grand tour",p4_d:"10 days",p4_c:"Tashkent, Khiva, Bukhara, Samarkand, Chimgan",
+p4_o:"<li>Arrive in Tashkent and airport pickup.</li><li>Tashkent tour.</li><li>Fly to Urgench, then Khiva. Tour inside Itchan Kala.</li><li>Khiva to Bukhara by car across the Kyzylkum desert.</li><li>Bukhara: the Ark, Kalyan complex, the trading domes.</li><li>Train to Samarkand. Registan Square in the evening.</li><li>Samarkand: Gur-e-Amir, Shah-i-Zinda, Bibi-Khanym, Ulugh Beg Observatory.</li><li>Imam al-Bukhari complex in the morning, then the high-speed train to Tashkent.</li><li>A day in the Chimgan mountains and at Charvak lake.</li><li>Transfer to the airport.</li>",
+pr_inc:"Tours include: airport pickup and drop-off, transfers by private car, hotels with breakfast, train tickets, and an Arabic-speaking guide on tours. International flights are not included.",
+cu_h:"A private trip, built to order",cu_p:"You choose the cities, the hotel level, the type of car, and how many days you want the driver. Suited to families and small groups.",
+sv_h:"Our services",
+sv1_t:"Airport pickup and drop-off",sv1_d:"A driver waits with your name on arrival and takes you back to the airport when you leave.",
+sv2_t:"Private car with a driver",sv2_d:"Sedan, family car, or a van for groups. By the day or for the whole trip.",
+sv3_t:"Hotels and resorts",sv3_d:"From old-city hotels to mountain resorts, to fit your budget.",
+sv4_t:"Arabic-speaking guide",sv4_d:"Joins you on tours and explains the history of each place in your language.",
+sv5_t:"Train and domestic flight tickets",sv5_d:"We book high-speed train seats early because they sell out in season.",
+sv6_t:"Group trips",sv6_d:"Fixed programmes on set dates with a per-person price.",
+sv7_t:"Family arrangements",sv7_d:"Connecting rooms, child seats, and family-friendly halal restaurants.",
+sv8_t:"Support throughout the trip",sv8_d:"One number that answers in Arabic from arrival to departure.",
+in_h:"Before you travel",
+in1_t:"Visa",in1_d:"Citizens of the Gulf Cooperation Council countries enter Uzbekistan without a visa for up to 30 days, and may be asked to show a departure ticket. Most other nationalities need an e-visa. Check the official rules before you book.",
+in2_t:"Best time to visit",in2_d:"Spring, April to June, and autumn, September to early November. Summer is hot in the cities and mild in the mountains; winter is ski season.",
+in3_t:"Currency",in3_d:"The Uzbek som. Cards are accepted in hotels and larger restaurants; you need cash in the bazaars.",
+in4_t:"Language",in4_d:"Uzbek is the official language and Russian is widely spoken. English is limited outside hotels, which is why we provide an Arabic-speaking companion.",
+in5_t:"Food",in5_d:"Uzbek cooking is generally halal: plov, shashlik, samsa, and fresh bread from the tandoor.",
+in6_t:"Prayer",in6_d:"There are mosques in every city, and we plan tour times around prayer times on request.",
+in7_t:"Phone and internet",in7_d:"Buy a local SIM at the airport with your passport. Internet is good in the cities.",
+in8_t:"Time zone",in8_d:"UTC+5: one hour ahead of the UAE and two hours ahead of Saudi Arabia.",
+tm_h:"Booking and payment",
+st1_t:"Send your request",st1_d:"Fill in the request form or message us directly. Give your dates and the number of travellers.",
+st2_t:"Receive a written quote",st2_d:"We send the programme and the final price, with what it includes and what it does not.",
+st3_t:"Sign the contract and pay the deposit",st3_d:"Services are provided under a written contract, on paper or electronic, under the laws of the Republic of Uzbekistan. The deposit amount is stated in the quote.",
+st4_t:"Receive your booking confirmation",st4_d:"You get confirmation of hotels and transfers, and the details of who meets you at the airport.",
+st5_t:"Pay the balance",st5_d:"Before or on arrival, as the contract sets out.",
+tm1_l:"Payment methods",tm1_v:"Bank card or bank transfer to the company account. Details are sent with the quote.",
+tm2_l:"Prices",tm2_v:"Set for each trip by season, number of travellers and hotel level.",
+tm3_l:"Cancellation and refunds",tm3_v:"Cancellation terms and refund rates are stated in the contract before any payment.",
+tm4_l:"Insurance",tm4_v:"We recommend travel insurance for the whole trip and can help arrange it on request.",
+team_h:"The people responsible for your services",tr1:"General manager",tr2:"Bookings and programmes",tr3:"Transport and airport reception",
+bk_h:"Request a trip quote",bk_p:"Enter your trip details and we will prepare your request text. Copy it and send it to us; we reply with a written quote covering the programme and the price.",
+f_name:"Name",f_phone:"Phone or WhatsApp number",f_type:"Trip type",o_private:"Private trip",o_group:"Group trip",f_prog:"Tour",o_custom:"Custom programme",f_pax:"Number of travellers",f_date:"Approximate arrival date",f_notes:"Notes",f_submit:"Prepare my request text",
+rd_h:"Your request text is ready. It has not been sent yet.",rd_copy:"Copy the text",rd_p:"Paste the text into a message to one of the contacts at the bottom of the page.",
+fq_h:"Common questions",
+q1:"Are the trips suitable for families and children?",a1:"Yes. We choose hotels with family rooms and roomy cars, and we shorten the walking when needed.",
+q2:"How many days do I need?",a2:"Five days cover Tashkent and the mountains. Seven days cover Tashkent, Samarkand and Bukhara. Ten days if you add Khiva.",
+q3:"Can I change the programme after booking?",a3:"Yes, before travel, subject to hotel and train availability. Changes after payment follow the contract terms.",
+q4:"Do prices include flights?",a4:"No. Prices cover services inside Uzbekistan only. We can suggest flights that fit your programme.",
+q5:"Do you run trips to other countries?",a5:"We also work in Kazakhstan and Kyrgyzstan, and can combine more than one country in a single trip.",
+ct_h:"Contact us",ct_p:"We reply in Arabic and English. Send your request text or any question about travelling to Uzbekistan.",
+ct1:"Legal company name",ct2:"Tax number (STIR / INN)",ct3:"Address",ct4:"Phone and WhatsApp",ct5:"Email",ct6:"Instagram",ct7:"Website",
+ft_small:"© 2026 JAFRA 10X. All rights reserved. Travel services are provided under a written contract under the laws of the Republic of Uzbekistan."
+};
+var MSG = {
+  ar:{need:"اكتب الاسم ورقم الهاتف حتى نجهّز الطلب.",copied:"تم النسخ",copyfail:"تعذّر النسخ. حدّد النص وانسخه يدوياً.",title:"طلب عرض رحلة إلى أوزبكستان",btn:"English"},
+  en:{need:"Enter your name and phone number so we can prepare the request.",copied:"Copied",copyfail:"Copy failed. Select the text and copy it manually.",title:"Trip quote request for Uzbekistan",btn:"العربية"}
+};
+var nodes = document.querySelectorAll("[data-i18n]"), AR = {}, lang = "ar";
+nodes.forEach(function(n){ var k = n.getAttribute("data-i18n"); if(!(k in AR)) AR[k] = n.innerHTML; });
+
+function setLang(l){
+  lang = l;
+  var dict = l === "en" ? EN : AR;
+  nodes.forEach(function(n){ var k = n.getAttribute("data-i18n"); n.innerHTML = (k in dict) ? dict[k] : AR[k]; });
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === "en" ? "ltr" : "rtl";
+  document.getElementById("langbtn").textContent = MSG[l].btn;
+  document.getElementById("err").textContent = "";
+  document.getElementById("ready").hidden = true;
+  try{ localStorage.setItem("jafra-lang", l); }catch(e){}
+}
+document.getElementById("langbtn").addEventListener("click", function(){ setLang(lang === "ar" ? "en" : "ar"); });
+try{ if(localStorage.getItem("jafra-lang") === "en") setLang("en"); }catch(e){}
+
+/* request form: builds a text the visitor sends themselves */
+var form = document.getElementById("req");
+function label(id){ return document.querySelector('label[for="'+id+'"]').textContent; }
+function chosen(id){ var s = document.getElementById(id); return s.options[s.selectedIndex].textContent; }
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  var name = form.name.value.trim(), phone = form.phone.value.trim(), err = document.getElementById("err");
+  if(!name || !phone){ err.textContent = MSG[lang].need; document.getElementById("ready").hidden = true; return; }
+  err.textContent = "";
+  var lines = [MSG[lang].title, "",
+    label("f-name")+": "+name,
+    label("f-phone")+": "+phone,
+    label("f-type")+": "+chosen("f-type"),
+    label("f-prog")+": "+chosen("f-prog"),
+    label("f-pax")+": "+(form.pax.value || "-"),
+    label("f-date")+": "+(form.date.value || "-")];
+  if(form.notes.value.trim()) lines.push(label("f-notes")+": "+form.notes.value.trim());
+  document.getElementById("summary").textContent = lines.join("\n");
+  document.getElementById("copy").textContent = (lang === "en" ? EN : AR).rd_copy;
+  document.getElementById("ready").hidden = false;
+});
+document.getElementById("copy").addEventListener("click", function(){
+  var b = this, t = document.getElementById("summary").textContent;
+  try{
+    navigator.clipboard.writeText(t).then(function(){ b.textContent = MSG[lang].copied; }, function(){ b.textContent = MSG[lang].copyfail; });
+  }catch(e){ b.textContent = MSG[lang].copyfail; }
+});
+
+/* hero tile lattice: eight-point stars, as on Samarkand glazed brickwork */
+var cv = document.getElementById("tiles");
+function drawTiles(){
+  var r = cv.parentNode.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d);
+  var c = cv.getContext("2d"); c.scale(d, d); c.clearRect(0, 0, r.width, r.height);
+  var s = r.width < 600 ? 56 : 76, a = s * 0.34, x, y, i;
+  c.lineWidth = 1;
+  for(y = s / 2; y < r.height + s; y += s){
+    for(x = s / 2; x < r.width + s; x += s){
+      c.strokeStyle = "rgba(110,200,214,0.17)";
+      for(i = 0; i < 2; i++){
+        c.save(); c.translate(x, y); c.rotate(i * Math.PI / 4); c.strokeRect(-a, -a, a * 2, a * 2); c.restore();
+      }
+      c.strokeStyle = "rgba(200,150,43,0.22)";
+      c.save(); c.translate(x + s / 2, y + s / 2); c.rotate(Math.PI / 4); c.strokeRect(-4, -4, 8, 8); c.restore();
+    }
+  }
+}
+drawTiles();
+var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(drawTiles, 150); });
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(drawTiles);
+</script>
+</body>
+</html>
